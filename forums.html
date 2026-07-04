@@ -359,9 +359,7 @@ body.forums{overflow-x:hidden}
   <p class="fo-tabdesc" id="tabDesc"><strong>General.</strong> Say hello, ask questions, and talk about anything Merthyra.</p>
 
   <div class="fo-panel">
-    <div class="fo-mount is-active" id="mount-general"></div>
-    <div class="fo-mount" id="mount-feedback"></div>
-    <div class="fo-mount" id="mount-bugs"></div>
+    <div class="fo-mount is-active" id="giscusMount"></div>
   </div>
 </main>
 
@@ -377,40 +375,32 @@ body.forums{overflow-x:hidden}
 <script>
 (function () {
   /* ============================================================
-     GISCUS CONFIG — fill these in from giscus.app
-     (repository: DevMerlin42/Merthyra). All values are safe to be
-     public. repo-id is the same for every category; each category
-     has its own category-id.
+     GISCUS CONFIG (DevMerlin42/Merthyra). Safe to be public.
+     One embed on the page; each tab swaps which discussion it shows.
+     Threads all live in the General category:
+       General #1  ·  Feedback #4  ·  Bug Reports #5
      ============================================================ */
-  var REPO      = "DevMerlin42/Merthyra";
-  var REPO_ID   = "R_kgDOTL1QqQ";
-  var CATEGORY  = "General";
+  var REPO        = "DevMerlin42/Merthyra";
+  var REPO_ID     = "R_kgDOTL1QqQ";
+  var CATEGORY    = "General";
   var CATEGORY_ID = "DIC_kwDOTL1Qqc4DAcy1";
-  // Each tab maps to a specific existing discussion thread (all in General):
-  //   General Discussion #1  ·  Feedback #4  ·  Bug Reports #5
-  var CATEGORIES = {
+  var TABS = {
     general:  { num: "1", desc: "<strong>General.</strong> Say hello, ask questions, and talk about anything Merthyra." },
     feedback: { num: "4", desc: "<strong>Feedback.</strong> Ideas, feature requests, and what would make Merthyra better." },
     bugs:     { num: "5", desc: "<strong>Bugs.</strong> Something broken? Include your device, OS version, and steps to reproduce." }
   };
+  var THEME = "dark_dimmed";
   /* ============================================================ */
 
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var configured = REPO_ID.indexOf("__") === -1;
+  var mount   = document.getElementById("giscusMount");
   var tabDesc = document.getElementById("tabDesc");
-  var tabs = Array.prototype.slice.call(document.querySelectorAll(".fo-tab"));
-  var loaded = {};
+  var tabs    = Array.prototype.slice.call(document.querySelectorAll(".fo-tab"));
+  var current = null;
 
+  function giscusFrame() { return document.querySelector("iframe.giscus-frame"); }
 
-  function loadGiscus(key) {
-    var cat = CATEGORIES[key];
-    var mount = document.getElementById("mount-" + key);
-    if (!cat || !mount) return;
-    if (!configured) {
-      mount.innerHTML = '<div class="fo-loading">Awaiting Giscus configuration…</div>';
-      loaded[key] = true;
-      return;
-    }
+  function buildEmbed(num) {
+    // fresh single embed pointed at one discussion
     mount.innerHTML = '<div class="fo-loading"><span class="fo-spinner"></span> Loading discussions\u2026</div>';
     var s = document.createElement("script");
     s.src = "https://giscus.app/client.js";
@@ -419,12 +409,12 @@ body.forums{overflow-x:hidden}
     s.setAttribute("data-category", CATEGORY);
     s.setAttribute("data-category-id", CATEGORY_ID);
     s.setAttribute("data-mapping", "number");
-    s.setAttribute("data-term", cat.num);
+    s.setAttribute("data-term", num);
     s.setAttribute("data-strict", "0");
     s.setAttribute("data-reactions-enabled", "1");
     s.setAttribute("data-emit-metadata", "0");
     s.setAttribute("data-input-position", "top");
-    s.setAttribute("data-theme", "dark_dimmed");
+    s.setAttribute("data-theme", THEME);
     s.setAttribute("data-lang", "en");
     s.setAttribute("data-loading", "lazy");
     s.crossOrigin = "anonymous";
@@ -434,21 +424,33 @@ body.forums{overflow-x:hidden}
       if (l) l.remove();
     });
     mount.appendChild(s);
-    loaded[key] = true;
+  }
+
+  function setDiscussion(num) {
+    var frame = giscusFrame();
+    if (frame && frame.contentWindow) {
+      // existing embed: ask it to switch discussion (no reload, no collision)
+      frame.contentWindow.postMessage(
+        { giscus: { setConfig: { term: num, mapping: "number" } } },
+        "https://giscus.app"
+      );
+    } else {
+      buildEmbed(num);
+    }
   }
 
   function activate(key) {
+    if (!TABS[key]) key = "general";
     tabs.forEach(function (t) {
       var on = t.getAttribute("data-tab") === key;
       t.classList.toggle("is-active", on);
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
-    ["general", "feedback", "bugs"].forEach(function (k) {
-      var m = document.getElementById("mount-" + k);
-      if (m) m.classList.toggle("is-active", k === key);
-    });
-    if (CATEGORIES[key]) tabDesc.innerHTML = CATEGORIES[key].desc;
-    if (!loaded[key]) loadGiscus(key);
+    tabDesc.innerHTML = TABS[key].desc;
+    if (key !== current) {
+      current = key;
+      setDiscussion(TABS[key].num);
+    }
     if (history.replaceState) history.replaceState(null, "", "#" + key);
   }
 
@@ -456,13 +458,12 @@ body.forums{overflow-x:hidden}
     t.addEventListener("click", function () { activate(t.getAttribute("data-tab")); });
   });
 
-  /* open the tab named in the URL hash, else General */
   var start = (location.hash || "").slice(1);
-  if (!CATEGORIES[start]) start = "general";
+  if (!TABS[start]) start = "general";
   activate(start);
   window.addEventListener("hashchange", function () {
     var k = (location.hash || "").slice(1);
-    if (CATEGORIES[k]) activate(k);
+    if (TABS[k]) activate(k);
   });
 })();
 </script>
