@@ -376,32 +376,45 @@ body.forums{overflow-x:hidden}
 (function () {
   /* ============================================================
      GISCUS CONFIG (DevMerlin42/Merthyra). Safe to be public.
-     One embed on the page; each tab swaps which discussion it shows.
-     Threads all live in the General category:
+     Exactly one embed on the page. Switching tabs rebuilds it,
+     freshly pointed at that discussion number (number mapping =
+     the exact existing thread, with full history, posts persist):
        General #1  ·  Feedback #4  ·  Bug Reports #5
      ============================================================ */
   var REPO        = "DevMerlin42/Merthyra";
   var REPO_ID     = "R_kgDOTL1QqQ";
   var CATEGORY    = "General";
   var CATEGORY_ID = "DIC_kwDOTL1Qqc4DAcy1";
+  var THEME       = "dark_dimmed";
   var TABS = {
     general:  { num: "1", desc: "<strong>General.</strong> Say hello, ask questions, and talk about anything Merthyra." },
     feedback: { num: "4", desc: "<strong>Feedback.</strong> Ideas, feature requests, and what would make Merthyra better." },
     bugs:     { num: "5", desc: "<strong>Bugs.</strong> Something broken? Include your device, OS version, and steps to reproduce." }
   };
-  var THEME = "dark_dimmed";
   /* ============================================================ */
 
   var mount   = document.getElementById("giscusMount");
   var tabDesc = document.getElementById("tabDesc");
   var tabs    = Array.prototype.slice.call(document.querySelectorAll(".fo-tab"));
   var current = null;
+  var loadTimer = null;
 
-  function giscusFrame() { return document.querySelector("iframe.giscus-frame"); }
+  function clearSpinner() {
+    var l = mount.querySelector(".fo-loading");
+    if (l) l.remove();
+  }
 
-  function buildEmbed(num) {
-    // fresh single embed pointed at one discussion
-    mount.innerHTML = '<div class="fo-loading"><span class="fo-spinner"></span> Loading discussions\u2026</div>';
+  // giscus posts a message once the discussion has actually loaded
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://giscus.app") return;
+    if (e.data && e.data.giscus && ("discussion" in e.data.giscus || "resizeHeight" in e.data.giscus)) {
+      clearSpinner();
+    }
+  });
+
+  function mountGiscus(num) {
+    // wiping innerHTML removes any prior iframe/script — only ever one embed
+    mount.innerHTML = '<div class="fo-loading"><span class="fo-spinner"></span> Loading discussion\u2026</div>';
     var s = document.createElement("script");
     s.src = "https://giscus.app/client.js";
     s.setAttribute("data-repo", REPO);
@@ -416,41 +429,24 @@ body.forums{overflow-x:hidden}
     s.setAttribute("data-input-position", "top");
     s.setAttribute("data-theme", THEME);
     s.setAttribute("data-lang", "en");
-    s.setAttribute("data-loading", "lazy");
     s.crossOrigin = "anonymous";
     s.async = true;
-    s.addEventListener("load", function () {
-      var l = mount.querySelector(".fo-loading");
-      if (l) l.remove();
-    });
     mount.appendChild(s);
-  }
-
-  function setDiscussion(num) {
-    var frame = giscusFrame();
-    if (frame && frame.contentWindow) {
-      // existing embed: ask it to switch discussion (no reload, no collision)
-      frame.contentWindow.postMessage(
-        { giscus: { setConfig: { term: num, mapping: "number" } } },
-        "https://giscus.app"
-      );
-    } else {
-      buildEmbed(num);
-    }
+    clearTimeout(loadTimer);
+    loadTimer = setTimeout(clearSpinner, 8000); // fallback if the load message is missed
   }
 
   function activate(key) {
     if (!TABS[key]) key = "general";
+    if (key === current) return; // same tab: don't rebuild/flicker
+    current = key;
     tabs.forEach(function (t) {
       var on = t.getAttribute("data-tab") === key;
       t.classList.toggle("is-active", on);
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
     tabDesc.innerHTML = TABS[key].desc;
-    if (key !== current) {
-      current = key;
-      setDiscussion(TABS[key].num);
-    }
+    mountGiscus(TABS[key].num);
     if (history.replaceState) history.replaceState(null, "", "#" + key);
   }
 
