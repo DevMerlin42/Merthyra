@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  MERTHYRA · THE CHANGELOG FEED
+  ─────────────────────────────
+  HOW TO ADD A POST:
+  1. Copy an <item> block below and paste it as the FIRST item
+     (newest posts go on top).
+  2. Update title, link (use the post id from changelog.html),
+     guid (same as link), pubDate, and description.
+  3. pubDate format:  Thu, 02 Jul 2026 12:00:00 GMT
+
+  BEFORE PUBLISHING:
+  Replace every YOUR-USERNAME.github.io/merthyra-writer below with
+  your real GitHub Pages URL (Settings > Pages shows it), keeping
+  the path to changelog.html the same.
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Merthyra · The Changelog</title>
+    <link>https://YOUR-USERNAME.github.io/merthyra-writer/changelog.html</link>
+    <atom:link href="https://YOUR-USERNAME.github.io/merthyra-writer/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Every Merthyra update: new features, improvements, and fixes for the personal writing workspace on Mac, iPhone, and iPad.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jul 2026 12:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>The Merthyra website and wiki are live</title>
+      <link>https://YOUR-USERNAME.github.io/merthyra-writer/changelog.html#site-and-wiki-launch</link>
+      <guid isPermaLink="true">https://YOUR-USERNAME.github.io/merthyra-writer/changelog.html#site-and-wiki-launch</guid>
+      <pubDate>Thu, 02 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Merthyra now has a proper home. The new landing page introduces the whole workspace, the wiki documents every part of it with 17 guides and live search, and The Changelog launches with this very feed.</description>
+    </item>
+
+    <item>
+      <title>The road to the App Store</title>
+      <link>https://YOUR-USERNAME.github.io/merthyra-writer/changelog.html#road-to-the-app-store</link>
+      <guid isPermaLink="true">https://YOUR-USERNAME.github.io/merthyra-writer/changelog.html#road-to-the-app-store</guid>
+      <pubDate>Tue, 30 Jun 2026 12:00:00 GMT</pubDate>
+      <description>Merthyra is in active development for Mac, iPhone, and iPad and headed to the App Store: one workspace for documents, collections, projects, tasks, calendar, research, and files, with a private assistant, local-first iCloud Drive storage, Siri and App Intents, and Apple Intelligence support where available.</description>
+    </item>
+
+  </channel>
+</rss>
