@@ -4,11 +4,22 @@
     <title>Merthyra Changelog</title>
     <link>https://merthyra.com/changelog.html</link>
     <atom:link href="https://merthyra.com/rss.xml" rel="self" type="application/rss+xml" />
-    <description>Major Merthyra releases, improvements, and fixes across Mac, iPhone, iPad, and Apple Vision Pro.</description>
+    <description>Website releases and redesign updates from Merthyra.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jul 2026 08:00:00 GMT</lastBuildDate>
-    <item><title>Build 63 — App Store release preparation and Apple Vision Pro</title><link>https://merthyra.com/changelog.html#build-63</link><guid isPermaLink="true">https://merthyra.com/changelog.html#build-63</guid><pubDate>Thu, 30 Jul 2026 08:00:00 GMT</pubDate><description>Native visionOS support, release signing preparation, platform gating, widget packaging, and the final App Store submission project.</description></item>
-    <item><title>Build 58 — Writer Pro</title><link>https://merthyra.com/changelog.html#build-58</link><guid isPermaLink="true">https://merthyra.com/changelog.html#build-58</guid><pubDate>Wed, 29 Jul 2026 08:00:00 GMT</pubDate><description>Professional editor layouts, tabs, writing aids, links, media, handwriting, OCR, version history, goals, and export.</description></item>
-    <item><title>Builds 51–57 — The unified Writer</title><link>https://merthyra.com/changelog.html#build-51</link><guid isPermaLink="true">https://merthyra.com/changelog.html#build-51</guid><pubDate>Mon, 27 Jul 2026 08:00:00 GMT</pubDate><description>Safe legacy migration, sections, tags, Trash, iPhone layouts, and reliable long-document editing.</description></item>
+    <lastBuildDate>Sat, 01 Aug 2026 08:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Website Redesign</title>
+      <link>https://merthyra.com/changelog.html#website-redesign</link>
+      <guid isPermaLink="true">https://merthyra.com/changelog.html#website-redesign</guid>
+      <pubDate>Sat, 01 Aug 2026 08:00:00 GMT</pubDate>
+      <description>Merthyra.com was redesigned with a new app hub, dedicated Merthyra and Merthyra Control landing pages, clearer navigation, responsive layouts, and a colorful liquid glass style.</description>
+    </item>
+    <item>
+      <title>Website Release</title>
+      <link>https://merthyra.com/changelog.html#website-release</link>
+      <guid isPermaLink="true">https://merthyra.com/changelog.html#website-release</guid>
+      <pubDate>Thu, 02 Jul 2026 08:00:00 GMT</pubDate>
+      <description>The original Merthyra website launched with its first product landing page, documentation, changelog, policies, beta terms, and community access.</description>
+    </item>
   </channel>
 </rss>
