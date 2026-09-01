@@ -1,106 +1,206 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Merthyra | Powerful native apps for your Mac life</title>
-  <meta name="description" content="Merthyra builds native Mac apps for productivity and device control. Explore the Merthyra workspace and Merthyra Control." />
-  <meta name="theme-color" content="#f5f7fb" />
-  <meta property="og:title" content="Merthyra | Native apps that make your Mac better" />
-  <meta property="og:description" content="The productivity tools you need and the device controls you want, designed to feel at home on Mac." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://merthyra.com/" />
-  <meta property="og:image" content="https://merthyra.com/logo.png" />
-  <link rel="icon" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5fb">
+  <meta name="description" content="Merthyra is a native workspace for writing, notebooks, whiteboards, spreadsheets, planning, and shared work across Mac, iPhone, and iPad.">
+  <link rel="canonical" href="https://merthyra.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Merthyra">
+  <meta property="og:title" content="Merthyra — Your work, in one place">
+  <meta property="og:description" content="Writing, notebooks, whiteboards, spreadsheets, calendar, reminders, and shared work in one native Apple workspace.">
+  <meta property="og:url" content="https://merthyra.com/">
+  <meta property="og:image" content="https://merthyra.com/assets/screens/dashboard.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Merthyra — Your work, in one place</title>
+  <link rel="icon" href="assets/merthyra-icon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
 </head>
-<body class="hub-page">
-  <div class="announcement"><strong>Merthyra is growing.</strong> Meet the new app built to make your devices easier to understand. <a href="merthyra-control.html">Explore Merthyra Control →</a></div>
-  <header class="site-header" data-site-header>
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Merthyra apps home"><img src="logo.png" alt="" width="38" height="38" /><span>Merthyra<small>Apps for your Mac life</small></span></a>
-      <nav class="site-nav" data-site-nav aria-label="Primary navigation">
-        <a href="index.html">Apps</a>
-        <a href="merthyra.html">Merthyra</a>
-        <a href="merthyra-control.html">Merthyra Control</a>
-        <a href="docs.html">Docs</a>
-        <a href="forums.html">Community</a>
+<body>
+  <header class="site-header" data-header>
+    <div class="shell nav-inner">
+      <a class="brand" href="/" aria-label="Merthyra home">Merthyra</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#workspace">Workspace</a>
+        <a href="#writer">Writer</a>
+        <a href="#apple">Apple</a>
+        <a href="#ownership">Your data</a>
+        <a href="/docs/">Docs</a>
       </nav>
-      <div class="header-actions">
-        <button class="icon-button" type="button" data-theme-toggle aria-label="Use dark appearance"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
-        <a class="button button-primary" href="#apps">Explore the apps</a>
-        <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      </div>
+      <a class="nav-cta" href="#availability">Get Merthyra <span aria-hidden="true">→</span></a>
     </div>
   </header>
 
   <main>
-    <section class="hub-hero">
-      <div class="container hub-hero-grid">
-        <div class="hero-copy" data-reveal>
-          <p class="kicker">Native tools. Serious power. Zero boring.</p>
-          <h1>Power your Mac. Simplify your <span class="gradient-text">digital life.</span></h1>
-          <p class="lead">Merthyra builds focused, Apple-native apps with the tools you need, the features you actually want, and interfaces that never make powerful work feel confusing.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#apps">Meet the app family</a><a class="button button-secondary" href="merthyra.html">Explore Merthyra</a></div>
-          <div class="hero-proof"><span>Native-first</span><span>Powerful without clutter</span><span>Fun by design</span><span>Made for Mac</span></div>
-        </div>
+    <section class="hero shell">
+      <div class="hero-kicker">A native workspace for Apple devices</div>
+      <h1>Keep the work.<br><span>Lose the app switching.</span></h1>
+      <p class="hero-lede">Merthyra brings writing, notebooks, whiteboards, spreadsheets, calendar, reminders, and shared work into one calm workspace built for Mac, iPhone, and iPad.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#workspace">See Merthyra</a>
+        <a class="button button-secondary" href="/docs/">Read the docs</a>
+      </div>
+      <div class="platforms" aria-label="Supported platforms">
+        <span>macOS</span><i></i><span>iPhone</span><i></i><span>iPad</span><i></i><span>iCloud Drive</span>
+      </div>
 
-        <div class="family-stage" data-reveal aria-label="The Merthyra app family">
-          <div class="family-glow family-glow-one"></div><div class="family-glow family-glow-two"></div>
-          <a class="family-product-card family-workspace-card" href="merthyra.html">
-            <div class="family-card-top"><span class="family-app-icon"><img src="logo.png" alt="" /></span><span><b>Merthyra</b><small>Productivity workspace</small></span><i>Open →</i></div>
-            <div class="workspace-preview">
-              <div class="workspace-preview-sidebar"><span></span><span class="active"></span><span></span><span></span><span></span></div>
-              <div class="workspace-preview-main"><div class="preview-welcome"></div><div class="preview-grid"><span></span><span></span><span class="wide"></span></div></div>
-            </div>
-            <p>Write, plan, organize, create, and keep your work connected.</p>
-          </a>
-          <a class="family-product-card family-control-card" href="merthyra-control.html">
-            <div class="family-card-top"><span class="family-app-icon control-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="16" height="10" rx="3"/><path d="M21 10v4M7 10v4M11 10v4M15 10v4"/></svg></span><span><b>Merthyra Control</b><small>Devices + battery</small></span><i>Open →</i></div>
-            <div class="battery-preview"><div class="battery-score"><strong>86</strong><small>All good</small></div><div class="battery-list"><span><i></i><b>Keyboard</b><em>92%</em></span><span><i></i><b>Mouse</b><em>78%</em></span><span><i></i><b>Headphones</b><em>64%</em></span></div></div>
-            <p>See what is connected, understand every battery, and control your setup.</p>
-          </a>
-          <div class="family-badge glass"><span>2</span><b>apps, one focused ecosystem</b></div>
+      <div class="hero-shot product-frame">
+        <div class="frame-bar" aria-hidden="true">
+          <div class="traffic"><span></span><span></span><span></span></div>
+          <div class="frame-title">Merthyra</div>
+          <div class="frame-chip">Personal Workspace</div>
+        </div>
+        <img src="assets/screens/dashboard.webp" alt="Merthyra Dashboard showing featured writing, recent notebooks, workspace cards, collections, drafts, and templates">
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Merthyra principles">
+      <div class="shell trust-grid">
+        <div><strong>Native Apple apps</strong><span>Designed for Mac, iPhone, and iPad.</span></div>
+        <div><strong>File-backed</strong><span>Keep portable copies in iCloud Drive.</span></div>
+        <div><strong>Works locally</strong><span>Your personal workspace does not depend on a web app.</span></div>
+        <div><strong>One workspace</strong><span>Write, plan, calculate, sketch, and organize together.</span></div>
+      </div>
+    </section>
+
+    <section id="workspace" class="story shell story-intro">
+      <div class="section-label">THE WORKSPACE</div>
+      <div class="story-heading">
+        <h2>Built around the work,<br>not around a feature list.</h2>
+        <p>Merthyra gives different kinds of work their own proper tools without turning them into separate islands. Your writing, plans, tables, sketches, and workspace context stay close to each other.</p>
+      </div>
+    </section>
+
+    <section class="feature-showcase shell">
+      <article class="feature feature-wide" id="writer">
+        <div class="feature-copy">
+          <div class="section-label">WRITER</div>
+          <h3>Notes when you need speed.<br>Documents when you need depth.</h3>
+          <p>The Writer Library keeps notes, documents, and notebooks together. Filter by type, folder, status, tags, or date, then open the full editor without leaving the workspace.</p>
+          <ul class="quiet-list">
+            <li>Live Markdown editing</li>
+            <li>Notes, documents, and notebooks</li>
+            <li>Folders, tags, saved views, and metadata</li>
+          </ul>
+        </div>
+        <div class="feature-media product-frame compact-frame">
+          <div class="frame-bar"><div class="traffic"><span></span><span></span><span></span></div><div class="frame-title">Writer Library</div></div>
+          <img src="assets/screens/writer.webp" alt="Merthyra Writer Library interface">
+        </div>
+      </article>
+
+      <div class="feature-pair">
+        <article class="feature feature-card">
+          <div class="icon-tile">▱</div>
+          <div class="section-label">WHITEBOARDS</div>
+          <h3>Think where words stop being enough.</h3>
+          <p>Map ideas visually, connect concepts, sketch flows, and keep the board beside the rest of the project instead of exporting it into another app.</p>
+        </article>
+        <article class="feature feature-card">
+          <div class="icon-tile grid-icon">▦</div>
+          <div class="section-label">SPREADSHEETS</div>
+          <h3>Real grids, inside the same workspace.</h3>
+          <p>Use sheets for budgets, trackers, inventories, calculations, and structured data without leaving Merthyra for a second workspace.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard-section">
+      <div class="shell dashboard-grid">
+        <div class="dashboard-copy">
+          <div class="section-label light-label">DASHBOARD</div>
+          <h2>Your workspace should open to what matters now.</h2>
+          <p>Pin the things you actually need: featured writing, recent notebooks, collections, drafts, templates, calendar, analytics, boards, and the panels that fit your workflow.</p>
+          <div class="mini-specs">
+            <span>Reorder panels</span><span>Show or hide</span><span>Resize where supported</span><span>Save per workspace</span>
+          </div>
+        </div>
+        <div class="dashboard-visual">
+          <div class="floating-card card-one"><b>Featured Writing</b><span>Pick up exactly where you left off.</span></div>
+          <div class="floating-card card-two"><b>Today</b><span>Calendar and reminders stay visible.</span></div>
+          <div class="floating-card card-three"><b>Workspace Overview</b><span>A quick read on the work around you.</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="apps">
-      <div class="container">
-        <div class="section-heading center" data-reveal><p class="kicker">Choose your tool</p><h2>Two apps. Two jobs. One unmistakable family.</h2><p>The homepage now tells the bigger Merthyra story. Each app has its own dedicated landing page when you are ready to go deeper.</p></div>
-        <div class="app-showcase-grid">
-          <article class="app-showcase workspace-showcase" data-reveal>
-            <div class="app-showcase-copy"><div class="product-label"><img src="logo.png" alt="" /><span><b>Merthyra</b><small>Productivity, connected</small></span></div><h3>Your complete workspace without the usual workspace mess.</h3><p>Merthyra brings Writer, projects, tasks, calendar, spreadsheets, files, automations, analytics, and workspace intelligence into one clean Apple-native system.</p><div class="app-showcase-pills"><span>Writer</span><span>Projects</span><span>Tasks</span><span>Calendar</span><span>Files</span><span>Intelligence</span></div><a class="button button-primary" href="merthyra.html">Visit the Merthyra page</a></div>
-            <div class="showcase-art workspace-art"><div class="art-window"><div class="art-titlebar"><i></i><i></i><i></i><b>Merthyra</b></div><div class="art-body"><aside><span class="active"></span><span></span><span></span><span></span><span></span></aside><div class="art-main"><div class="art-banner"></div><div class="art-cards"><span></span><span></span><span class="wide"></span></div></div></div></div></div>
-          </article>
+    <section id="apple" class="story shell apple-story">
+      <div class="section-label">APPLE, BUILT IN</div>
+      <div class="story-heading">
+        <h2>It belongs on your Apple devices.</h2>
+        <p>Merthyra is built as a native workspace instead of a browser shell. Calendar and Reminders can connect to Apple services, Sign in with Apple handles the account layer, and iCloud Drive keeps portable workspace files close to the system you already use.</p>
+      </div>
+      <div class="apple-grid">
+        <article><div class="service-icon">◫</div><h3>Apple Calendar</h3><p>Bring your schedule into the same place you write and plan.</p></article>
+        <article><div class="service-icon">✓</div><h3>Apple Reminders</h3><p>Keep reminders visible without rebuilding them in a private task silo.</p></article>
+        <article><div class="service-icon">☁</div><h3>iCloud Drive</h3><p>Mirror portable workspace files into a Merthyra folder you can see.</p></article>
+        <article><div class="service-icon">⌘</div><h3>Shortcuts</h3><p>Make Merthyra part of the workflows you already run on Apple platforms.</p></article>
+      </div>
+    </section>
 
-          <article class="app-showcase control-showcase" data-reveal>
-            <div class="app-showcase-copy"><div class="product-label"><span class="family-app-icon control-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="16" height="10" rx="3"/><path d="M21 10v4M7 10v4M11 10v4M15 10v4"/></svg></span><span><b>Merthyra Control</b><small>Your devices, finally understandable</small></span></div><h3>Battery info and device control that does not feel like a system report.</h3><p>Merthyra Control turns your connected setup into a simple, lively dashboard with clear battery health, connection status, useful controls, and notifications with personality.</p><div class="app-showcase-pills"><span>Bluetooth devices</span><span>Battery status</span><span>Quick controls</span><span>Fun alerts</span></div><a class="button button-primary" href="merthyra-control.html">Visit the Control page</a></div>
-            <div class="showcase-art control-art"><div class="control-orbit"><div class="orbit-core"><strong>86%</strong><small>Setup health</small></div><span class="orbit-device device-one">⌨<b>92%</b></span><span class="orbit-device device-two">◉<b>78%</b></span><span class="orbit-device device-three">◖◗<b>64%</b></span></div></div>
-          </article>
+    <section id="ownership" class="ownership">
+      <div class="shell ownership-grid">
+        <div>
+          <div class="section-label light-label">YOUR DATA</div>
+          <h2>A workspace should not become a trap.</h2>
+        </div>
+        <div class="ownership-copy">
+          <p>Merthyra keeps personal work local-first and mirrors workspace content into practical file formats in iCloud Drive. The goal is simple: the work should still make sense outside the app that created it.</p>
+          <div class="format-grid">
+            <span><b>.md</b> Writer</span>
+            <span><b>.csv</b> Spreadsheets</span>
+            <span><b>.ics</b> Calendar</span>
+            <span><b>.pdf</b> Notebooks</span>
+            <span><b>.svg</b> Whiteboards</span>
+            <span><b>.mdb</b> Dashboard</span>
+            <span><b>.mws</b> Workspace</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section family-values-section">
-      <div class="container">
-        <div class="section-heading" data-reveal><p class="kicker">The Merthyra way</p><h2>Your tools should feel powerful, not punishing.</h2><p>Every Merthyra app follows the same rules: make the advanced stuff easy to understand, respect the platform, and leave room for a little personality.</p></div>
-        <div class="family-values-grid">
-          <article class="value-card" data-reveal><span>01</span><h3>Native where it matters</h3><p>Designed around Mac conventions, Apple platforms, and the way your devices already work together.</p></article>
-          <article class="value-card" data-reveal><span>02</span><h3>Focused, not stripped down</h3><p>Deep features stay available without turning every screen into a cockpit full of unlabeled switches.</p></article>
-          <article class="value-card" data-reveal><span>03</span><h3>Alive enough to enjoy</h3><p>Fluid motion, playful details, and useful notifications make everyday utility software feel less lifeless.</p></article>
-        </div>
+    <section class="integrations shell">
+      <div class="integration-copy">
+        <div class="section-label">CONNECTED WHEN YOU WANT IT</div>
+        <h2>Local by default.<br>Connected where it helps.</h2>
+        <p>Personal work can stay local while optional services handle the things that actually need a connection, like shared workspaces, Apple services, and creator analytics.</p>
+      </div>
+      <div class="integration-shot product-frame compact-frame">
+        <div class="frame-bar"><div class="traffic"><span></span><span></span><span></span></div><div class="frame-title">Integrations</div></div>
+        <img src="assets/screens/integrations.webp" alt="Merthyra Integrations interface">
       </div>
     </section>
 
-    <section class="section">
-      <div class="container family-cta glass" data-reveal><div><p class="kicker">Start exploring</p><h2>Pick the app that solves today’s problem.</h2><p class="lead">Build your work in Merthyra. Understand and control your setup with Merthyra Control.</p></div><div class="family-cta-actions"><a class="button button-primary" href="merthyra.html">Explore Merthyra</a><a class="button button-secondary" href="merthyra-control.html">Explore Merthyra Control</a></div></div>
+    <section class="simple-power shell">
+      <div class="section-label">MORE ROOM WHEN YOU NEED IT</div>
+      <h2>Simple on day one.<br>Useful long after.</h2>
+      <div class="capability-list" aria-label="Merthyra capabilities">
+        <span>Live Markdown</span><span>Handwritten notebooks</span><span>Whiteboards</span><span>Spreadsheets</span><span>Calendar</span><span>Reminders</span><span>Boards</span><span>Workspace files</span><span>Backups</span><span>Shared workspaces</span><span>Saved views</span><span>Templates</span><span>iCloud Drive</span>
+      </div>
+    </section>
+
+    <section id="availability" class="closing shell">
+      <div class="closing-card">
+        <div class="closing-mark">M</div>
+        <div class="section-label">MERTHYRA</div>
+        <h2>One place for the work<br>you actually do.</h2>
+        <p>Built for Mac, iPhone, and iPad with a file-backed approach to personal work.</p>
+        <div class="hero-actions closing-actions">
+          <a class="button button-primary" href="/docs/">Explore the docs</a>
+          <a class="button button-secondary" href="https://mikulasentertainment.com">Mikulas Entertainment</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html"><img src="logo.png" alt="" /><span>Merthyra<small>Apps for your Mac life</small></span></a><p>Powerful native tools for productivity, connected devices, and the parts of your digital life that should be easier.</p></div><div class="footer-col"><h3>Apps</h3><a href="merthyra.html">Merthyra</a><a href="merthyra-control.html">Merthyra Control</a></div><div class="footer-col"><h3>Resources</h3><a href="docs.html">Documentation</a><a href="changelog.html">Changelog</a><a href="forums.html">Community</a></div><div class="footer-col"><h3>Company</h3><a href="privacy.html">Privacy</a><a href="public-beta-terms.html">Beta terms</a><a href="mailto:support.merlin@thesmol.one">Support</a></div></div><div class="footer-bottom"><span>© <span data-current-year>2026</span> Merlin Mikulas · Published by Mikulas Entertainment LLC</span><span>Designed for Mac and the Apple ecosystem.</span></div></div>
+  <footer>
+    <div class="shell footer-grid">
+      <div class="footer-brand"><a class="brand" href="/">Merthyra</a><p>A native workspace for writing, planning, creating, and keeping your work together.</p></div>
+      <div class="footer-links"><strong>Product</strong><a href="#workspace">Workspace</a><a href="#writer">Writer</a><a href="#apple">Apple</a><a href="#ownership">Your data</a></div>
+      <div class="footer-links"><strong>Resources</strong><a href="/docs/">Documentation</a><a href="https://mikulasentertainment.com">Mikulas Entertainment</a></div>
+      <div class="footer-meta"><span>© 2026 Merthyra</span><span>Built for Apple platforms.</span></div>
+    </div>
   </footer>
-  <script src="site.js"></script>
 </body>
 </html>
